@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+<GridPane hgap="10.0" prefHeight="400.0" prefWidth="500.0" vgap="10.0"
+          xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="org.rmr.lavadora.view.LavadoraViewController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label text="Simulador de Lavadora Difusa" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0">
+        <font>
+            <Font name="System Bold" size="18.0" />
+        </font>
+    </Label>
+
+    <Label text="Grado de Suciedad (0.100):" GridPane.rowIndex="1" />
+    <Slider fx:id="sliderSuciedad" max="100.0" value="50.0" showTickMarks="true" showTickLabels="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+    <Label text="Tipo de Tejido (0-10):" GridPane.rowIndex="2" />
+    <Slider fx:id="sliderTejido" max="10.0" value="5" majorTickUnit="1.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+    <Label text="Peso de la carga (0-10):" GridPane.rowIndex="3" />
+    <Slider fx:id="sliderPeso" max="10.0" value="5" majorTickUnit="1.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+    <Button fx:id="calcularButton" onAction="#onCalcularButtonClick" text="Calcular Ciclo" maxWidth="Infinity" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+
+    <Label text=" -- Resultado -- " GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="5">
+        <font>
+            <Font name="System Bold" size="14.0" />
+        </font>
+    </Label>
+
+    <Label text="Cantidad de Agua:" GridPane.rowIndex="6" />
+    <TextField fx:id="textResultadoAgua" editable="false" promptText="Litros" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+
+    <Label text="Tiempo de Lavado:" GridPane.rowIndex="7" />
+    <TextField fx:id="textResultadoTiempo" editable="false" promptText="Minutos" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+
+    <Label text="Velocidad (RPM)" GridPane.rowIndex="8" />
+    <TextField fx:id="textResultadoVelocidad" editable="flase" promptText="RPM" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="350.0" />
+    </columnConstraints>
+</GridPane>
+
+
+
+
+
+
