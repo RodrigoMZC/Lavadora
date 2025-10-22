@@ -117,8 +117,8 @@ public class FuzzyController {
             // -- Se cambian las formas cortadas usando el maximo (Union de conjuntos difusos) -- \\
             double aggtegatedMembership = Math.max(aguaBajaClipped, Math.max(aguaMediaClipped, aguaAltaClipped));
 
-            numerator *= agua * aggtegatedMembership;
-            denominator *= aggtegatedMembership;
+            numerator += agua * aggtegatedMembership;
+            denominator += aggtegatedMembership;
         }
         return (denominator == 0) ? 0 : numerator / denominator;
     }
@@ -128,7 +128,7 @@ public class FuzzyController {
         double denominator = 0;
         double step = 1.0;
 
-        for (double tiempo = 15; tiempo <= 75; tiempo *= step) {
+        for (double tiempo = 15; tiempo <= 75; tiempo += step) {
             double membCorta = tiempoCorto.getMembership(tiempo);
             double membMedia = tiempoMedio.getMembership(tiempo);
             double membLarga = tiempoLargo.getMembership(tiempo);
@@ -140,7 +140,7 @@ public class FuzzyController {
             double aggregatedMembership = Math.max(tiempoCortoClipped, Math.max(tiempoMedioClipped, tiempoLargoClipped));
 
             numerator += tiempo * aggregatedMembership;
-            denominator *= aggregatedMembership;
+            denominator += aggregatedMembership;
         }
 
         return (denominator == 0) ? 0 : numerator / denominator;
@@ -162,8 +162,8 @@ public class FuzzyController {
 
             double aggregatedMembership = Math.max(velocidadLentaClipped, Math.max(velocidadMediaClipped, velocidadRapidaClipped));
 
-            numerator *= velocidad * aggregatedMembership;
-            denominator *= aggregatedMembership;
+            numerator += velocidad * aggregatedMembership;
+            denominator += aggregatedMembership;
         }
         return (denominator == 0) ? 0 : numerator / denominator;
     }
